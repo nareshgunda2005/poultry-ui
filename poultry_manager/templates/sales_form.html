@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Add Sale - Poultry Manager{% endblock %}
+{% block content %}
+<h2 class="mb-3">Add Sale</h2>
+<form method="post" class="row g-3">
+  <div class="col-md-3">
+    <label class="form-label">Date</label>
+    <input type="date" class="form-control" name="record_date" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Item</label>
+    <select class="form-select" name="item">
+      <option value="eggs">Eggs</option>
+      <option value="meat">Meat</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label class="form-label">Quantity</label>
+    <input type="number" class="form-control" name="quantity" min="0" step="0.01" value="0">
+  </div>
+  <div class="col-md-2">
+    <label class="form-label">Unit</label>
+    <input type="text" class="form-control" name="unit" placeholder="pcs, dozen, kg" value="pcs">
+  </div>
+  <div class="col-md-2">
+    <label class="form-label">Unit Price</label>
+    <input type="number" class="form-control" name="unit_price" min="0" step="0.01" value="0">
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Total Amount (auto if blank)</label>
+    <input type="number" class="form-control" name="total_amount" min="0" step="0.01" placeholder="auto">
+  </div>
+  <div class="col-12">
+    <label class="form-label">Notes</label>
+    <input type="text" class="form-control" name="notes" placeholder="Optional">
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="{{ url_for('sales_list') }}" class="btn btn-outline-secondary">Cancel</a>
+  </div>
+</form>
+{% endblock %}

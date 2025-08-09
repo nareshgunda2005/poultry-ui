@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Add Production - Poultry Manager{% endblock %}
+{% block content %}
+<h2 class="mb-3">Add Production</h2>
+<form method="post" class="row g-3">
+  <div class="col-md-4">
+    <label class="form-label">Date</label>
+    <input type="date" class="form-control" name="record_date" value="{{ (caller_date or None) or (cycler and cycler) }}" required>
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Eggs Count</label>
+    <input type="number" class="form-control" name="eggs_count" min="0" step="1" value="0">
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Meat (kg)</label>
+    <input type="number" class="form-control" name="meat_kg" min="0" step="0.01" value="0">
+  </div>
+  <div class="col-12">
+    <label class="form-label">Notes</label>
+    <input type="text" class="form-control" name="notes" placeholder="Optional">
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="{{ url_for('production_list') }}" class="btn btn-outline-secondary">Cancel</a>
+  </div>
+</form>
+{% endblock %}
